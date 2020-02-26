@@ -36,11 +36,16 @@ export default class ListItem extends Component {
 
     render() {
         const items = this.props.item;
+        // console.log(items);
+
         const memoList = items.map(item => {
             return (
-                <ul>
-                    <ListOfAllItems item={item} key={item.text} />
-                </ul>
+                <ListOfAllItems
+                    item={item}
+                    key={item.text}
+                    completeItem={this.props.completeItem}
+
+                />
             )
         });
 
@@ -49,7 +54,7 @@ export default class ListItem extends Component {
             <div className="memo-list">
                 <h2>My plan for the day</h2>
 
-                {memoList}
+                <ul> {memoList} </ul>
 
                 <form className="memo-form" onSubmit={this.handleSubmit}>
                     <label className="input-item" for="user-input">

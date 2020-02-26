@@ -49,13 +49,20 @@ ul {
 }
 
 li {
-  margin-bottom: -2rem;
   padding: 0rem;
   text-align: left;
 }
 
 .memo-form {
   margin-top: 5rem;
+}
+
+.cross-out {
+  text-decoration: line-through;
+}
+
+.change-color {
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

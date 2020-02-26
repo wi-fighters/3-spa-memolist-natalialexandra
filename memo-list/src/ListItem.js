@@ -10,6 +10,29 @@ export default class ListItem extends Component {
         }
     }
 
+    // add user input
+    handleNewItem = (e) => {
+        this.setState({
+            userInput: e.target.value
+        })
+    }
+
+    // add user input to the memo list
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        // check if user input is not empty, then run the function 
+        if (this.state.userInput.trim() !== "") {
+            // call the function to ad new item to array todo list
+            this.props.addItem(this.state.userInput.trim())
+
+            // empty the input again
+            this.setState({
+                userInput: ""
+            })
+        }
+    }
+
 
     render() {
         const items = this.props.item;
@@ -28,9 +51,9 @@ export default class ListItem extends Component {
 
                 {memoList}
 
-                <form className="memo-form">
+                <form className="memo-form" onSubmit={this.handleSubmit}>
                     <label className="input-item" for="user-input">
-                        <input type="text" name="todo" id="user-input" />
+                        <input type="text" name="todo" id="user-input" value={this.state.userInput} onChange={this.handleNewItem} />
                     </label>
                     <input type="submit" className="btn" value="ADD" />
                 </form>

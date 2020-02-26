@@ -15,6 +15,17 @@ export default class App extends Component {
     }
   }
 
+  // add item to memo list
+  addItem = (newItem) => {
+    // create new item
+    let item = { id: this.state.items.length, text: newItem, complete: false };
+
+    // add new item to the array copy
+    this.setState({
+      items: [...this.state.items, item]
+    })
+  }
+
   render() {
     const memoItem = this.state.items.map(item => {
       return item;
@@ -24,7 +35,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
 
-        <ListItem item={memoItem} />
+        <ListItem item={memoItem} addItem={this.addItem} />
       </div>
     )
   }

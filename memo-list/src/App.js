@@ -9,7 +9,8 @@ export default class App extends Component {
 
     this.state = {
       items: [
-        { id: 0, text: "be happy", complete: false }
+        { id: 0, text: "be happy", complete: false },
+        { id: 1, text: "relax", complete: false }
       ]
     }
   }

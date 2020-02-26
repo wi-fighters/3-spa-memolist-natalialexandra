@@ -28,7 +28,7 @@ export default class ListItem extends Component {
 
                 {memoList}
 
-                <form className="todo-form">
+                <form className="memo-form">
                     <label className="input-item" for="user-input">
                         <input type="text" name="todo" id="user-input" />
                     </label>

@@ -44,17 +44,25 @@ body {
 }
 
 ul {
-  max-width: 30%;
+  /* max-width: 30%; */
   margin: 3rem auto;
 }
 
 li {
   padding: 0rem;
   text-align: left;
+    display: flex;
+
 }
 
 .memo-form {
   margin-top: 5rem;
+}
+
+
+.btn-delete {
+  margin-left: auto;
+  text-decoration: none;
 }
 
 .cross-out {

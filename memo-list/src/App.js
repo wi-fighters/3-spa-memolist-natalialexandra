@@ -15,6 +15,7 @@ export default class App extends Component {
     }
   }
 
+
   // add item to memo list
   addItem = (newItem) => {
     // create new item
@@ -25,9 +26,25 @@ export default class App extends Component {
     })
   }
 
+
+  // edit item
+  editItem = (id, newInput) => {
+    this.state.items.map(item => {
+      if (this.state.id === id) {
+        item = newInput;
+        console.log(item);
+
+        this.setState({
+          items: newInput
+        })
+      }
+    });
+  }
+
+
   // cross out completed task
   completeItem = (id) => {
-    const newState = this.state.items.map((item, i) => {
+    const newState = this.state.items.map(item => {
       if (item.id === id) {
         item.complete = !item.complete;
         return item;
@@ -42,8 +59,16 @@ export default class App extends Component {
   }
 
 
+  // delete item from memo list
+  removeItem = (id) => {
+    const newArr = this.state.items.splice(id, 1);
+    this.setState({
+      items: newArr
+    })
+  }
+
   render() {
-    const memoItem = this.state.items.map(item => {
+    const memoItem = this.state.items.map((item) => {
       return item;
     });
 
@@ -51,9 +76,12 @@ export default class App extends Component {
       <div className="App">
         <Header />
 
-        <ListItem item={memoItem}
+        <ListItem
+          item={memoItem}
           addItem={this.addItem}
           completeItem={this.completeItem}
+          removeItem={this.removeItem}
+          editItem={this.editItem}
         />
       </div>
     )

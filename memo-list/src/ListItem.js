@@ -20,12 +20,10 @@ export default class ListItem extends Component {
     // add user input to the memo list
     handleSubmit = (e) => {
         e.preventDefault();
-
         // check if user input is not empty, then run the function 
         if (this.state.userInput.trim() !== "") {
             // call the function to ad new item to array todo list
             this.props.addItem(this.state.userInput.trim())
-
             // empty the input again
             this.setState({
                 userInput: ""
@@ -44,7 +42,8 @@ export default class ListItem extends Component {
                     item={item}
                     key={item.text}
                     completeItem={this.props.completeItem}
-
+                    removeItem={this.props.removeItem}
+                    editItem={this.props.editItem}
                 />
             )
         });

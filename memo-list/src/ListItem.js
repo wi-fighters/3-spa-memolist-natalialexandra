@@ -34,7 +34,6 @@ export default class ListItem extends Component {
 
     render() {
         const items = this.props.item;
-        // console.log(items);
 
         const memoList = items.map(item => {
             return (
@@ -47,7 +46,6 @@ export default class ListItem extends Component {
                 />
             )
         });
-
 
         return (
             <div className="memo-list">
